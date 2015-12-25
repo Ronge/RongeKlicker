@@ -1,0 +1,52 @@
+<head>
+  <title>Raphael &amp; Robert Klicker</title>
+  <meta name="description" content="Multiplayer Version von Cookie Clicker. ">
+</head>
+
+<body>
+  <div class="container">
+    <div id="header">
+    </div>
+    <h1>Raphael &amp; Robert Klicker</h1>
+    {{> leaderboard}}
+  </div>
+</body>
+
+<template name="leaderboard">
+
+  <table class="leaderboard table table-striped">
+    <thead>
+      <th>Benutzer</th><th>Betrag</th><th>Euro pro Sekunde</th>
+    </thead>
+
+    <tbody>
+      {{#each players}}
+        {{> player}}
+      {{/each}}
+    </tbody>
+  </table>
+
+  {{#if currentUser}}
+    <h2>Hallo {{user.username}}!</h2>
+    <p>Du hast € {{formatCurrency user.money}} und bekommst € {{formatCurrency user.rate}} pro Sekunde!</p>
+  {{else}}
+    <h2>Bitte melde dich an um zu spielen!</h2>
+  {{/if}}
+
+  <p>{{> loginButtons}}</p>
+
+  <div class="details">
+    <input type="button" class="code btn span4" value="Verdiene € 25" />
+    {{#each items}}
+    <input type="button" class="buy btn span4" id="{{cost}}" value="Kaufe einen {{name}} für € {{formatCurrency cost}}" />
+    {{/each}}
+  </div>
+</template>
+
+<template name="player">
+  <tr class="player">
+    <td class="name">{{username}}</td>
+    <td class="money">€ {{formatCurrency money}}</td>
+    <td class="rate">{{formatCurrency rate}}</td>
+  </tr>
+</template>
