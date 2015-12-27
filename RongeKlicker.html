@@ -36,9 +36,9 @@
   <p>{{> loginButtons}}</p>
 
   <div class="details">
-    <input type="button" class="code btn span4" value="Verdiene € 25" />
+    <input type="button" class="code btn span4" value="Verdiene € 100" />
     {{#each items}}
-    <input type="button" class="buy btn span4" id="{{cost}}" value="Kaufe einen {{name}} für € {{formatCurrency cost}}" />
+    <input type="button" class="buy btn span4" id="{{cost}}" value="{{name}} kaufen für € {{formatCurrency cost}}" />
     {{/each}}
   </div>
 </template>

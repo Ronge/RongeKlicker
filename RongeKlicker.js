@@ -3,7 +3,7 @@ By: Edward Jiang
 A clone of Cookie Clicker that's multiplayer for a CodeDay Workshop */
 
 //Define items.
-Items = [{name: "Affen", cost: 500}];
+Items = [{name: "Affen", cost: 500},{name: "Grossmutter", cost: 1000}];
 
 if (Meteor.isClient) {
   //Switch logins to username
@@ -76,6 +76,6 @@ Meteor.methods({
   },
   click: function () {
     //Give people $25 per click
-    Meteor.users.update({_id: this.userId}, {$inc: {'money': 25}});
+    Meteor.users.update({_id: this.userId}, {$inc: {'money': 100}});
   },
 })
